@@ -1,8 +1,7 @@
 Intro to Programming First Principles (May 2013)
 ========
 
-1 - Instalation
---------
+## 1 - Instalation
 
 ### Mac and Linux (unix based systems)
 
@@ -18,8 +17,7 @@ http://www.python.org/getit/
 
 Select the installation package for your operating system. Be sure to get python 2.7.5 and not 3.3.2
 
-2 - The python runtime
---------
+## 2 - The python runtime
 
 Python can be run as scripts or entered directly into the python prompt. Enter into a python prompt (by typing 'python' into a terminal or by locating the "python shell" in IDLE). Then type `print "hello world"` and press enter. You should see the following:
 
@@ -34,8 +32,7 @@ Next execute the file by clicking `Run > Run Module`.
 
 There is no difference between executing it line by line in the terminal and running a program.
 
-3 - Basic Operations
---------
+## 3 - Basic Operations
 
 Python provides the following basic math operations:
 
@@ -45,9 +42,9 @@ Python provides the following basic math operations:
 
 \* multiplication
 
-\/ division (integer)
+/ division (integer)
 
-\% modulo division (remainder)
+% modulo division (remainder)
 
 Test each of the above by typing a number then an operator then another number. Confirm that all of the following return 8.
 
