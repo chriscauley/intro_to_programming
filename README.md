@@ -1,6 +1,26 @@
 Intro to Programming First Principles (May 2013)
 ========
 
+## 0 - Introduction
+
+### Why we program
+
+* Humans make mistakes when repeating simple actions, computers do not (see also "free will vs determinism"). Computers also do these things much more quickly than we can.
+
+* Smarter people have solved problems, computers give us access to those solutions.
+
+* Once you write a program, you can pass it onto others (or your future self).
+
+### Why python
+
+* Very readable, very "human friendly".
+
+* Batteries included (common problems are already solved in advance).
+
+* Strong community (others solve problems so you don't have to).
+
+* Powerful, sleek, and sexy (like a python).
+
 ## 1 - Instalation
 
 ### Mac and Linux (unix based systems)
@@ -15,7 +35,7 @@ For this course we'll be using python 2.7, which can be downloaded from:
 
 http://www.python.org/getit/
 
-Select the installation package for your operating system. Be sure to get python 2.7.5 and not 3.3.2
+Select the installation package for your operating system. Be sure to get python 2.7.5 and not 3.3.2 because some of the course material herein will not work in the later version of python.
 
 ## 2 - The python runtime
 
@@ -151,7 +171,7 @@ Every programming language has rules for what you can and can't name a variable.
 
 * Names can contain letters, numbers and underscores, `_`. The following are all legal names: `count`, `x1`, `x2`, `day_2_awesomesauce`.
 
-* Names cannot contain any other characters. The following are all ILLEGAL names: `day-three-milleage`, `james+julie`, `**fablous!!**`, `myspace.com`.
+* Names cannot contain any other characters. The following are all ILLEGAL names: `day-three-milleage`, `james+julie`, `**fablous!!**`, `myspace.com`, `f%$^&_it`. These will usually generate SyntaxErrors.
 
 * Names cannot start with numbers. This is an ILLEGAL name: `123go`
 
