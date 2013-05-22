@@ -21,7 +21,7 @@ Intro to Programming First Principles (May 2013)
 
 * Object oriented, customizable.
 
-## 1 - Instalation
+## 1 - Installation
 
 ### Mac and Linux (unix based systems)
 
@@ -62,9 +62,9 @@ Python provides the following basic math operations:
 
 \* multiplication
 
-/ division (integer)
+/ division (integer division, rounds down)
 
-% modulo division (remainder)
+% modulo division (returns only remainder of integer division)
 
 Test each of the above by typing a number then an operator then another number. Confirm that all of the following return 8.
 
@@ -142,7 +142,9 @@ This illustrates several important points.
 
 ```python
 """
-Jim eats 3 cookies a day. If cookies come in packs of 20, how many packs (round down) does he eat in a year? How many cookies will he have left over at that time?
+Jim eats 3 cookies a day. If cookies come in packs of 20,
+ how many packs (round down) does he eat in a year?
+ How many cookies will he have left over at that time?
 """
 
 cookies_per_day = 3
@@ -211,7 +213,7 @@ continue  except    global    lambda    raise
 
 ## 6 - Strings
 
-We have a long way to go before we get to useful programming, so I plan on moving quickly past some concepts with the hopes to return to them later. So far we have learned about integers, a numeric data type that can be used to perform mathematical operations. In this section we learn about three new types of data.
+We have a long way to go before we get to useful programming. So far we have learned about integers, a numeric data type that can be used to perform mathematical operations. In this section we learn about three new types of data.
 
 Try the following:
 
@@ -249,7 +251,7 @@ Exercises:
 ```python
 'one plus one is ' + '1' + '1'
 
-'Na na '*10 + 'batman'
+'Na na ' * 8 + 'batman!'
 
 'I' + 'love' + 'bees'
 ```
@@ -285,7 +287,7 @@ Here `type` is a function that returns the "type" of a value. Above we see two t
 <type 'type'>
 ```
 
-But for now let's focus on the new use of parentheses. A function takes in zero or more variables and returns zero or more values like `output = function(variable_1,variable_2,...)`. In this case type converts a variable into it's corresponding "<type>", or in python terms:
+But for now let's focus on the new use of parentheses. A function takes in zero or more variables and returns zero or more values like `output = function(variable_1,variable_2,...)`. In this case type converts a variable into it's corresponding "\<type>", or in python terms:
 
 ```python
 type_of_x = type(x)
