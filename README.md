@@ -301,7 +301,7 @@ int('1') + 1 # returns the number 2
 '1' + str(1) # returns the string '11'
 ```
 
-## 9 - raw_input and our first real program!
+## 9 - `raw_input` and our first real program!
 
 `raw_input` is a different type of function. It takes in a string and displays it to the user. The user then types in anything, and python returns a string of the users input.
 
