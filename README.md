@@ -363,6 +363,10 @@ print "g is the " +str(number)+"th number in the alphabet"
 
 Any variable can be can be changed inside the loop and when you exit the loop the change stays.
 
+### Ninja exercise
+
+1. Write a loop that prints your name.
+
 Typically we do not iterate over a string but over a list. Lists are a series of any python object. For example, the following program counts to ten:
 
 ```python
