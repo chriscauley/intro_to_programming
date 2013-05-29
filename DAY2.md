@@ -3,7 +3,7 @@ Intro to Programming Day 2
 
 ## A few string methods
 
-Last week we asked for a `raw_input` where we wanted a number. If the user enters an invalid value, the trying to turn the input into an integer results in a `ValueError`.
+Last week we asked for a `raw_input` where we wanted a number. If the user enters an invalid value, then trying to turn the input into an integer results in a `ValueError`.
 
 ```python
 >>> some_number =raw_input("Enter a number: ")
@@ -16,7 +16,7 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: 'a'
 ```
 
-What we want is a function that checks to see if `some_number` is a number. As you can imagine, if there was a built in function for everything we could want to do for a string then it would be impossible to memorize all the built in functions and naming variables would become very difficult. Instead a string has a variety of "memthods". Think of these as functions that automatically use the string as an argument.
+What we want is a function that checks to see if `some_number` is a number. As you can imagine, if there was a built in function for everything we could want to do for a string then it would be impossible to memorize all the built in functions and naming variables would become very difficult. Instead a string has a variety of "methods". Think of these as functions that automatically use the string as an argument.
 
 ```python
 >>> not_a_number = 'a'
@@ -27,8 +27,7 @@ False
 True
 ```
 
-If there was a function `isdigit` you would write `isdigit(some_variable)`, but all strings have a method `isdigit` which determines if the string can be turned into an `int` and returns `True` or `False` accordingly.
-
+If there was a function `isdigit` you would write `isdigit(some_variable)`, but all strings have a method `isdigit` which determines if the string can be turned into an `int` and returns `True` or `False` accordingly. So we use the method on the string to tell if is a number by writting `some_variable.isdigit()`
 
 To see all of the methods of a string we can use the `dir` built in function, which prints a list of all possible methods of the variable. `dir` will always show the same thing for any two strings, but will return a different list of methods for a different type.
 
@@ -60,9 +59,11 @@ this is a string
 THIS IS A STRING
 >>> print some_string.title()
 This Is A String
->>> print some_string.startswith('z')
+>>> print some_string.startswith('t')
 False
 >>> print some_string.startswith('T')
+True
+>>> print some_string.lower().startswith('t')
 True
 >>> print some_string
 this is a string
@@ -78,6 +79,8 @@ And now their definitions:
 
 * `str.startswith(string)` - takes in a string as an argument and returns `True` or  `False` depending on whether or not the string starts with the string argument.
 
+* `some_string.lower().startswith('t')` - This shows that you can "chain" methods together. Because `str.lower()` returns a string, you can apply `.startswith('t')` to the result.
+
 * The last line is to illustrate that the string has not changed
 
 And now some `list` methods:
@@ -92,6 +95,9 @@ And now some `list` methods:
 >>> a_list.insert(1,666)
 >>> print a_list
 [0,666,1,2,"monkey"]
+>>> a_list.sort()
+>>> print a_list
+[0,1,2,666,"monkey"]
 ```
 
 And now the definitions:
@@ -100,7 +106,9 @@ And now the definitions:
 
 * `list.insert(position,variable)` - inserts the variable at the position. This will increase the length of the list by one.
 
-* Notice that neither of these return a value. Instead the variable a_list itself is changed. This is very different then the methods of a string.
+* `list.sort()` - sorts the list.
+
+* Notice that neither of these return a value. Instead the variable a_list itself is changed. This is very different then the methods of a string. If you want to keep the original list, you must save it as a different variable.
 
 ## `While` loops and advanced flow control
 
@@ -115,7 +123,7 @@ for i in range(1000):
 a_number = int(a_string)
 ```
 
-This will start by setting a variable (`a_string`) to a value that is not a number (because `a_string.isdigit() == False`) and then run a for loop 1000 times. If `a_string` is not a number (as it is at the start) it will ask for a number via `raw_input`. Once they enter a number, the loop will repeat indefinitely until they enter a number. Although the loop isn't doing anything, it still takes a small time to run and slows down the program. Additionally future programmers might not be able to figure out what you're doing very easily.
+This will start by setting a variable (`a_string`) to a value that is not a number (because `a_string.isdigit() == False`) and then run a for loop 1000 times. If `a_string` is not a number (as it is at the start) it will ask for a number via `raw_input`. Once they enter a number, the loop will repeat indefinitely until they enter a number. Although the loop isn't doing anything, it still takes a small time to run and slows down the program. Also, if the person fails at this 1000 times, the program will error out when you try to convert `a_string` to a number. Additionally future programmers might not be able to figure out what you're doing very easily.
 
 It'd be much better to use a `while` loop.
 
@@ -127,11 +135,11 @@ while not length.isdigit():
 length = int(length)
 ```
 
-Here, if the user enters a number the first time, then `not length.isdigit()` will be false and the `while` loop will not execute. If they enter a non-number for the length, the while loop will repeat until they enter a valid value. We could change the question depending on how many times it has been asked:
+Here, if the user enters a number the first time, then `not length.isdigit()` will be `False` and the `while` loop will not execute. If they enter a non-number for the length, the while loop will repeat until they enter a valid value. We could change the question depending on how many times it has been asked:
 
-`while` loops have the syntax `while conditional_statement:`, where the conditional statement can be an expression, like `while i < 10000:`, or even a variable like `while keep_dancing`. A `while` loop works very similar to a `for`, only a `for` loop cycles through values and a `while` loop executes the code, checkes the conditional, and then repeats if the conditional is still `True`. As long as the conditional statement evaluates to `True`, the code intedented after the `while` loop cycles forever.
+`while` loops have the syntax `while conditional_statement:`, where the conditional statement can be an expression, like `while i < 10000:`, or even a variable like `while keep_dancing`. A `while` loop works very similar to a `for`, only a `for` loop cycles through values and a `while` loop executes the expression, checkes the resulting conditional, and then repeats if the conditional is still `True`. As long as the conditional statement evaluates to `True`, the code intedented after the `while` loop cycles forever.
 
-A more practical conditional would be something like `while number_of_lives > 0:` for a video game or maybe `while heightest_piece_height < 20:` for something like Tetris.
+A more practical conditional would be something like `while number_of_lives > 0:` for a video game or maybe `while heighest_piece_height < 20:` for something like Tetris.
 
    Most programs use something like `while True:` so that the program loops indefinitely until the loop is manually proben. You can manually break out of the normal flow of any `while` or `for` loop using two key words, `break` and `continue`. `break` means you want to exit the loop entirely. This is useful when there are many reasons to exit a `while` loop or when you are looking for a matching value in a list. `continue` ignores the rest of the `while` loop, checks the conditional, and restarts the loop. If you wanted to give someone three chances to guess a password you could do this.
 
