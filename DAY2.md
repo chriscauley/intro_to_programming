@@ -108,11 +108,11 @@ And now the definitions:
 
 * `list.sort()` - sorts the list.
 
-* Notice that neither of these return a value. Instead the variable a_list itself is changed. This is very different then the methods of a string. If you want to keep the original list, you must save it as a different variable.
+* Notice that neither of these return a value. Instead the variable `a_list` itself is changed. This is very different then the methods of a string. If you want to keep the original list, you must save it as a different variable.
 
 ## `While` loops and advanced flow control
 
-Let's go back to the original problem stated at the begining of the last problem. We want to insure that a value taken in by `raw_input` is a number. You could do something like this:
+Let's go back to the original problem stated at the begining of the last section. We want to insure that a value taken in by `raw_input` is a number. You could do something like this:
 
 ```python
 a_string = 'not a number'
@@ -144,6 +144,7 @@ A more practical conditional would be something like `while number_of_lives > 0:
    Most programs use something like `while True:` so that the program loops indefinitely until the loop is manually proben. You can manually break out of the normal flow of any `while` or `for` loop using two key words, `break` and `continue`. `break` means you want to exit the loop entirely. This is useful when there are many reasons to exit a `while` loop or when you are looking for a matching value in a list. `continue` ignores the rest of the `while` loop, checks the conditional, and restarts the loop. If you wanted to give someone three chances to guess a password you could do this.
 
 ```python
+# this is available as password.py in the source materials
 guesses = 0
 knows_password = False
 while guesses < 3:
@@ -157,7 +158,7 @@ while guesses < 3:
         print "You didn't enter anything."
         continue
     guesses = guesses + 1
-    print "Wrong password, try again. You have " + str(3-guesses) " guesses left."
+    print "Wrong password, try again. You have " + str(3-guesses) + " guesses left."
 
 if knows_password:
     print "Welcome!"
@@ -172,12 +173,13 @@ If the password is entered correctly, we `break` out of the `while` loop rather 
 
 1. Write a while loop that prints the numbers 0-10. 
 
-2. What would be the loop conditional for the following games: Chess, Checkers, Hot Potato, Calvin Ball, Candy Land? If you don't know some of these, feel free to pick any board or video game and answer the question.
+2. What would be the loop conditional for the following games: Chess, Checkers, Hot Potato, Candy Land? If you don't know some of these, feel free to pick any board or video game and answer the question.
 
 2. What does the following program do? Can you change this to print the 1000 verses? (I don't recommend executing it) Could you have done this with a `for` loop? Can you change the lamb chops program to print indefinitely? Could you have done this with a `for` loop? (I really don't recommend executing this program)
 
 
 ```python
+# this is available as lamb_chop.py in the source materials'
 i = 0
 while i < 10:
    print "This is the song that doesn't end."
@@ -189,15 +191,17 @@ while i < 10:
 
 ## Bringing it all together: an interlude
 
-Last time we learned a variety of data types and syntax for python. For this session we're going to learn functions, libraries, exceptions, and dictionaries. To do this we're going to understand the following problem and then improve on it with these new techniques
-
 Imagine that you're writting programs to estimate the amount of materials required to a remodel room. To do this we'll need to know the perimeter of a room, floor area, wall area. This can then be converted to gallons of paint, sheets of sheetrock, feet of trim and crown molding, and square feet of carpet or hard wood. So we start with a simple program like this:
 
 
 ```python
+# This is available as room1.py in the source materials
 length = raw_input("What is the length of the room?")
+length = int(length)
 width = raw_input("What is the width of the room?")
+width = int(width)
 height = raw_input("What is the height of the room?")
+height = int(height)
 
 perimeter = 2 * int(length) + 2 * int(width)
 wall_area = perimeter * int(height)
@@ -216,7 +220,7 @@ paint_estimate = price_of_paint * amount_of_paint
 carpet_estimate = price_of_carpet * amount_of_carpet
 
 print "Trim estimate: $" + str(trim_estimate)
-print "Print estimate: $" + str(print_estimate)
+print "Print estimate: $" + str(paint_estimate)
 print "Carpet estimate: $" + str(carpet_estimate)
 print "Total estimated cost: $" + str(trim_estimate+paint_estimate+carpet_estimate)
 ```
@@ -276,9 +280,13 @@ And a few important notes
 
 * after `def` comes the function name followed by parentheses and then arguments. There can be zero to infinity arguments like so:
 
+* There's a weird string at the begining of the funciton, surrounded by triple quotes. This is a "Doc String", intended to explain the function. We'll see more of this later.
+
+Now let's try a few simple functions.
+
 ```python
 def curse_zues():
-    print "Zues, why have you forsaken me!!!"
+    print "Zues, why have you abandoned me!!!"
 
 def greet_user(name):
     print "Hello, "+name+". It is good to see you again."
@@ -291,7 +299,7 @@ The above would work like this:
 
 ```python
 >>> curse_zues()
-Zues, why have you forsaken me!!!
+Zues, why have you abandoned me!!!
 >>> greet_user("Ditchy McAbandon Pants")
 Hello, Ditchy McAbandon Pants. It is good to see you again.
 >>> x = add(1,2,3)
@@ -330,3 +338,148 @@ print fist_greater_than_5(my_list) # prints 6
 - `return True` if the last digit in the sum of all numbers is equal to the digit argument (hint: use `last_digit = my_sum%10`)
 
 - Otherwise `return False`.
+
+## Dictionaries
+
+Our remodeling program is still pretty sloppy looking. The namespace (collection of variables) is becoming cluttered with repetetive variables like "amount_of_X" and "price_of_X" and "X_estimate". 
+
+```python
+# this is available as room2.py in the source materials
+def number_input(question):
+    """ Just like raw_input, but forces a number and returns an integer """
+    while True:
+        input = raw_input(question)
+        if input.isdigit():
+            break
+        else:
+            print "Invalid input. Please enter a number."
+    return int(input)
+
+length = number_input("What is the length of the room?")
+width = number_input("What is the width of the room?")
+height = number_input("What is the height of the room?")
+
+perimeter = 2 * int(length) + 2 * int(width)
+wall_area = perimeter * int(height)
+floor_area = length * width # also the ceiling_area!
+
+amount_of_trim = perimeter
+amount_of_paint = (wall_area + floor_area) / 350 #assuming 350 sq ft per gallon of paint
+amount_of_carpet = floor_area
+
+price_of_trim = 3 #$/ft
+price_of_paint = 20 #$/gallon
+price_of_carpet = 30 #$/sq ft
+
+trim_estimate = price_of_trim * amount_of_trim
+paint_estimate = price_of_paint * amount_of_paint
+carpet_estimate = price_of_carpet * amount_of_carpet
+
+print "Trim estimate: $" + str(trim_estimate)
+print "Print estimate: $" + str(paint_estimate)
+print "Carpet estimate: $" + str(carpet_estimate)
+print "Total estimated cost: $" + str(trim_estimate+paint_estimate+carpet_estimate)
+```
+
+What we really want is to store all the amounts, prices and estimates in their own variables. To do this we can use dictionaries. As an example, we'll keep the scores of students in a dictionary like this:
+
+```python
+scores = {'billy': 70, 'sally': 80, 'chris': 65}
+```
+
+Which, for clarity sake, could be written like this:
+
+```python
+scores = {
+    'billy': 70,
+    'sally': 80,
+    'chris': 65
+}
+```
+
+There is literally no difference between these two representations. One is just written more legibly than the other. In general a dictionary is written as `some_dict = {key1: value1, key2: value2}`, wrappind the entire thing in braces `{}` and separating each `key: value` with comas. Both keys and values can be anything (lists, strings, integers, other dicts) but for the purpose of this class we'll always use strings as keys and keep all values in a dict of the same type.
+
+If you want to reference a value of a dict, it is done using brakets and the key used. You can even use a variable to look up a key. You can also use this to change the value of an entry.
+
+```python
+scores = {'billy': 70, 'sally': 80, 'chris': 65}
+print scores['billy'] #prints 70
+student = 'sally'
+print scores[student] # prints 80
+scores[student] = 100
+print scores[student] # prints 100
+```
+
+When you iterate over a dictionary (pass it into a forloop) it cycles through the keys in no particular order. You can also use `len` to determine the length of a dictionary, just as you could with a `list` or a `str`. Also , you can use `in` to check to see if a key is in a dictionary, much like with a `list` or a `str`.
+
+```python
+scores = {'billy': 70, 'sally': 80, 'chris': 65}
+total = 0
+for key in scores:
+    total = total + scores[student]
+
+print total # prints 215
+print "Average: "+str(total/len(scores)) # prints 71
+print 'alex' in scores # prints False
+```
+
+Take a minute to try the above in the terminal.
+
+We can now use this to clean up our room estimator program a bit.
+
+```python
+# this is available as room3.py in the source materials
+def number_input(question):
+    """ Just like raw_input, but forces a number and returns an integer """
+    while True:
+        input = raw_input(question)
+        if input.isdigit():
+            break
+        else:
+            print "Invalid input. Please enter a number."
+    return int(input)
+
+length = number_input("What is the length of the room?")
+width = number_input("What is the width of the room?")
+height = number_input("What is the height of the room?")
+
+perimeter = 2 * int(length) + 2 * int(width)
+wall_area = perimeter * int(height)
+floor_area = length * width # also the ceiling_area!
+
+amounts = {
+    "trim": perimeter,
+    "paint": (wall_area + floor_area) / 350, #assuming 350 sq ft per gallon of paint
+    "carpet": floor_area,
+}
+
+prices = {
+    "trim": 3, #$/ft
+    "paint": 20, #$/gallon
+    "carpet": 30, #$/sq ft
+}
+
+estimates = {}
+
+total = 0
+for key in amounts:
+    estimates[key] = prices[key]*amounts[key]
+    print key.upper() + " estimate: $" + str(estimates[key])
+    total = total + estimates[key]
+
+print "Total estimated cost: $" + str(total)
+```
+
+This way if we wanted to add additional calculations (for wiring, sheetrock, etc) we only need to add a new price and a new amount. The estimates and totals will be adjusted accordingly.
+
+## Exercises
+
+1. modify room3.py to include a "wall_sockets" amount and price. Wall sockets should occur every 15 feet and cost $40 a piece to install.
+
+2. Add a color_cost dictionary with two colors, blue and white. Blue paint costs $30/gallon while white paint costs $20/gallon. Print the color options (by looping over the color_cost dictionary). 
+
+3. Write a `while` loop that asks for a color, and won't stop until they enter 'blue' or 'white'. Hint: use `result = raw_input("pick a color: ")` and `if result in color_cost:`.
+
+4. Modify the `price["paint"]` to reflect their choice. 
+
+5. SUPER BONUS QUESTION. Put the entire program above in a `while` loop. At the end of each cycle as "would you like to enter another room? (y/n)". Repeat the program until they enter "n". Store all the estimates in a list of dictionaries (remeber `list.append()`?). Then print the estimates for all the individual components and the grand total when done. You will use a lot of nested for loops.
