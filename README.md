@@ -308,7 +308,7 @@ int('1') + 1 # returns the number 2
 ```python
 name = raw_input('What is your name? ')
 age = raw_input('How old are you? ')
-print "Hello " + name + ". You are " + age + " years old".
+print "Hello " + name + ". You are " + age + " years old."
 ```
 
 ### Exercises
@@ -409,7 +409,7 @@ print range(0,105,5)
 
 ## Contitionals
 
-The final thing we need to start writting real programs is conditionals. Conditional statements block off code using indentation (much like loops). A conditional will only execute using if the conditional statement is evaluated as true. For example:
+The final thing we need to start writting real programs is conditionals. Conditional statements block off code using indentation (much like loops). A conditional block of code will only execute if the conditional statement is evaluated as true. For example:
 
 ```python
 if True:
@@ -490,5 +490,5 @@ for name in x:
         match = True
 
 if not match:
-    print "Cool name, nice to meet you " user_name
+    print "Cool name, nice to meet you "+  user_name
 ```
