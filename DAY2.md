@@ -3,7 +3,7 @@ Intro to Programming Day 2
 
 ## A few string methods
 
-    Last week we asked for a `raw_input` where we wanted a number. If the user enters an invalid value, the trying to turn the input into an integer results in a `ValueError`.
+Last week we asked for a `raw_input` where we wanted a number. If the user enters an invalid value, the trying to turn the input into an integer results in a `ValueError`.
 
 ```python
 >>> some_number =raw_input("Enter a number: ")
@@ -16,7 +16,7 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: 'a'
 ```
 
-    What we want is a function that checks to see if `some_number` is a number. As you can imagine, if there was a built in function for everything we could want to do for a string then it would be impossible to memorize all the built in functions and naming variables would become very difficult. Instead a string has a variety of "memthods". Think of these as functions that automatically use the string as an argument.
+What we want is a function that checks to see if `some_number` is a number. As you can imagine, if there was a built in function for everything we could want to do for a string then it would be impossible to memorize all the built in functions and naming variables would become very difficult. Instead a string has a variety of "memthods". Think of these as functions that automatically use the string as an argument.
 
 ```python
 >>> not_a_number = 'a'
@@ -27,10 +27,10 @@ False
 True
 ```
 
-    If there was a function `isdigit` you would write `isdigit(some_variable)`, but all strings have a method `isdigit` which determines if the string can be turned into an `int` and returns `True` or `False` accordingly.
+If there was a function `isdigit` you would write `isdigit(some_variable)`, but all strings have a method `isdigit` which determines if the string can be turned into an `int` and returns `True` or `False` accordingly.
 
 
-    To see all of the methods of a string we can use the `dir` built in function, which prints a list of all possible methods of the variable. `dir` will always show the same thing for any two strings, but will return a different list of methods for a different type.
+To see all of the methods of a string we can use the `dir` built in function, which prints a list of all possible methods of the variable. `dir` will always show the same thing for any two strings, but will return a different list of methods for a different type.
 
 ```python
 >>> print dir('a')
@@ -50,7 +50,7 @@ True
 '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
 ```
 
-    Looking at this we can see many useful methods for strings and lists. I'll briefly describe a few of these. We'll ignore the "magic methods" or those starting with underscores, "_". These are advanced and outside the scope of this class. Don't worry about memorizing this list just yet. This is mostly just to give you an idea of what each method can do.
+Looking at this we can see many useful methods for strings and lists. I'll briefly describe a few of these. We'll ignore the "magic methods" or those starting with underscores, "_". These are advanced and outside the scope of this class. Don't worry about memorizing this list just yet. This is mostly just to give you an idea of what each method can do.
 
 ```python
 >>> some_string = "This is a string"
@@ -68,7 +68,7 @@ True
 this is a string
 ```
 
-    And now their definitions:
+And now their definitions:
 
 * `str.lower()` - return the string with all letters lowercase.
 
@@ -80,7 +80,7 @@ this is a string
 
 * The last line is to illustrate that the string has not changed
 
-    And now some `list` methods:
+And now some `list` methods:
 
 ```python
 >>> a_list = range(3)
@@ -94,7 +94,7 @@ this is a string
 [0,666,1,2,"monkey"]
 ```
 
-    And now the definitions:
+And now the definitions:
 
 * `list.append(variable)` - adds the variable to the end of the list. This increases the length of the list by one.
 
@@ -104,7 +104,7 @@ this is a string
 
 ## `While` loops and advanced flow control
 
-    Let's go back to the original problem stated at the begining of the last problem. We want to insure that a value taken in by `raw_input` is a number. You could do something like this:
+Let's go back to the original problem stated at the begining of the last problem. We want to insure that a value taken in by `raw_input` is a number. You could do something like this:
 
 ```python
 a_string = 'not a number'
@@ -115,9 +115,9 @@ for i in range(1000):
 a_number = int(a_string)
 ```
 
-    This will start by setting a variable (`a_string`) to a value that is not a number (because `a_string.isdigit() == False`) and then run a for loop 1000 times. If `a_string` is not a number (as it is at the start) it will ask for a number via `raw_input`. Once they enter a number, the loop will repeat indefinitely until they enter a number. Although the loop isn't doing anything, it still takes a small time to run and slows down the program. Additionally future programmers might not be able to figure out what you're doing very easily.
+This will start by setting a variable (`a_string`) to a value that is not a number (because `a_string.isdigit() == False`) and then run a for loop 1000 times. If `a_string` is not a number (as it is at the start) it will ask for a number via `raw_input`. Once they enter a number, the loop will repeat indefinitely until they enter a number. Although the loop isn't doing anything, it still takes a small time to run and slows down the program. Additionally future programmers might not be able to figure out what you're doing very easily.
 
-    It'd be much better to use a `while` loop.
+It'd be much better to use a `while` loop.
 
 ```python
 length = raw_input("Enter a number: ")
@@ -127,11 +127,11 @@ while not length.isdigit():
 length = int(length)
 ```
 
-    Here, if the user enters a number the first time, then `not length.isdigit()` will be false and the `while` loop will not execute. If they enter a non-number for the length, the while loop will repeat until they enter a valid value. We could change the question depending on how many times it has been asked:
+Here, if the user enters a number the first time, then `not length.isdigit()` will be false and the `while` loop will not execute. If they enter a non-number for the length, the while loop will repeat until they enter a valid value. We could change the question depending on how many times it has been asked:
 
-    `while` loops have the syntax `while conditional_statement:`, where the conditional statement can be an expression, like `while i < 10000:`, or even a variable like `while keep_dancing`. A `while` loop works very similar to a `for`, only a `for` loop cycles through values and a `while` loop executes the code, checkes the conditional, and then repeats if the conditional is still `True`. As long as the conditional statement evaluates to `True`, the code intedented after the `while` loop cycles forever.
+`while` loops have the syntax `while conditional_statement:`, where the conditional statement can be an expression, like `while i < 10000:`, or even a variable like `while keep_dancing`. A `while` loop works very similar to a `for`, only a `for` loop cycles through values and a `while` loop executes the code, checkes the conditional, and then repeats if the conditional is still `True`. As long as the conditional statement evaluates to `True`, the code intedented after the `while` loop cycles forever.
 
-    A more practical conditional would be something like `while number_of_lives > 0:` for a video game or maybe `while heightest_piece_height < 20:` for something like Tetris.
+A more practical conditional would be something like `while number_of_lives > 0:` for a video game or maybe `while heightest_piece_height < 20:` for something like Tetris.
 
    Most programs use something like `while True:` so that the program loops indefinitely until the loop is manually proben. You can manually break out of the normal flow of any `while` or `for` loop using two key words, `break` and `continue`. `break` means you want to exit the loop entirely. This is useful when there are many reasons to exit a `while` loop or when you are looking for a matching value in a list. `continue` ignores the rest of the `while` loop, checks the conditional, and restarts the loop. If you wanted to give someone three chances to guess a password you could do this.
 
@@ -158,7 +158,7 @@ else:
     print "Unathorized login attempt. This computer will self-destruct in 10 seconds."
 ```
 
-    If the password is entered correctly, we `break` out of the `while` loop rather than executing the remaining code. If they don't enter a password we aren't going to hold it against them, so we `continue`, which jumps to the top of the while loop and ignores the `guesses = guesses + 1` statement.
+If the password is entered correctly, we `break` out of the `while` loop rather than executing the remaining code. If they don't enter a password we aren't going to hold it against them, so we `continue`, which jumps to the top of the while loop and ignores the `guesses = guesses + 1` statement.
 
 ### Exercises
 
@@ -181,9 +181,9 @@ while i < 10:
 
 ## Bringing it all together: an interlude
 
-    Last time we learned a variety of data types and syntax for python. For this session we're going to learn functions, libraries, exceptions, and dictionaries. To do this we're going to understand the following problem and then improve on it with these new techniques
+Last time we learned a variety of data types and syntax for python. For this session we're going to learn functions, libraries, exceptions, and dictionaries. To do this we're going to understand the following problem and then improve on it with these new techniques
 
-    Imagine that you're writting programs to estimate the amount of materials required to a remodel room. To do this we'll need to know the perimeter of a room, floor area, wall area. This can then be converted to gallons of paint, sheets of sheetrock, feet of trim and crown molding, and square feet of carpet or hard wood. So we start with a simple program like this:
+Imagine that you're writting programs to estimate the amount of materials required to a remodel room. To do this we'll need to know the perimeter of a room, floor area, wall area. This can then be converted to gallons of paint, sheets of sheetrock, feet of trim and crown molding, and square feet of carpet or hard wood. So we start with a simple program like this:
 
 
 ```python
@@ -217,7 +217,7 @@ print "Total estimated cost: $" + str(trim_estimate+paint_estimate+carpet_estima
 
 ## Functions: `def` and `return`
 
-    The above example doesn't actually do any error checking. If someone other than the author tried to use this they might input `twelve` instead of `12` or even `3'6"` instead of `3.5`. They will then receive a cryptic error that a non-programmer may not be able to understand. This means the line `height = raw_input("What is the height of the room?")` should be replaced with something like this:
+The above example doesn't actually do any error checking. If someone other than the author tried to use this they might input `twelve` instead of `12` or even `3'6"` instead of `3.5`. They will then receive a cryptic error that a non-programmer may not be able to understand. This means the line `height = raw_input("What is the height of the room?")` should be replaced with something like this:
 
 ```python
 answer = False
@@ -230,7 +230,7 @@ while not answer:
         print "Invalid input. Please enter a number."
 ```
 
-    If you had to copy and paste these 8 lines over and over again your program would become very unreadable (pro-coders refer to this as "copy-pasta" or "spaghetti-code"). Additionally if you ever had to change this (let's say to allow `3'6"` as a valid input) then you would have to change multiple places, making the code difficult to maintain. What we really want is a new function `number = number_input(question)` that will execute the above code in a single line. Functions are defined using `def` (short for definition) and return a value using `return` (similar to print).
+If you had to copy and paste these 8 lines over and over again your program would become very unreadable (pro-coders refer to this as "copy-pasta" or "spaghetti-code"). Additionally if you ever had to change this (let's say to allow `3'6"` as a valid input) then you would have to change multiple places, making the code difficult to maintain. What we really want is a new function `number = number_input(question)` that will execute the above code in a single line. Functions are defined using `def` (short for definition) and return a value using `return` (similar to print).
 
 ```python
 def number_input(question):
@@ -244,7 +244,7 @@ def number_input(question):
     return int(input)
 ```
 
-    This is still 9 lines of code, but it can be re-used over and over again as a function. You can then substitute this for `raw_input` every where you want to insure that you get a number for the value:
+This is still 9 lines of code, but it can be re-used over and over again as a function. You can then substitute this for `raw_input` every where you want to insure that you get a number for the value:
 
 ```python
 length = number_input("What is the length of the room?")
@@ -252,7 +252,7 @@ width = number_input("What is the width of the room?")
 height = number_input("What is the height of the room?")
 ```
 
-    The basic syntax here is:
+The basic syntax here is:
 
 ```python
 def function_name(argument):
@@ -260,7 +260,7 @@ def function_name(argument):
     return some_value
 ```
 
-    And a few important notes
+And a few important notes
 
 * The first line of a function looks similar to if statements and loops. They all start with a key word (in this case `def`) then have specific details (here the function name and arguments), and then end with a colon `:`. In all three cases you must use indentation to tell where the code begins and ends or you will get an `IndentationError`
 
@@ -279,7 +279,7 @@ def add3(number1,number2,number3):
     return number1 + number2 + number3
 ```
 
-    The above would work like this:
+The above would work like this:
 
 ```python
 >>> curse_zues()
@@ -291,7 +291,7 @@ Hello, Ditchy McAbandon Pants. It is good to see you again.
 6
 ```
 
-    Note that if a function receives fewer or greater arguments than is required, it will raise a `TypeError`. Also, `return`ing anything is actually optional. The first two functions printed but didn't return anything. 
+Note that if a function receives fewer or greater arguments than is required, it will raise a `TypeError`. Also, `return`ing anything is actually optional. The first two functions printed but didn't return anything. 
 
 * Lastly a function ends by returning a value. This is optional. Also you can put return in conditionals or forloops.
 
