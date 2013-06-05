@@ -3,6 +3,9 @@ def is_even(number):
         return True
     return False
 
+def better_is_even(number):
+    return number % 2 == 0
+
 def is_odd(number):
     return not is_even(number)
 
@@ -17,7 +20,7 @@ def check_sum(some_string,digit):
     for character in some_string:
         if character.isdigit():
             total = total + int(character)
-    if total % digit == 0:
+    if total % 10 == digit:
         return True
     return False
 

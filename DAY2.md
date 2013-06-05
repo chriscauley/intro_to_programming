@@ -415,7 +415,7 @@ When you iterate over a dictionary (pass it into a forloop) it cycles through th
 ```python
 scores = {'billy': 70, 'sally': 80, 'chris': 65}
 total = 0
-for key in scores:
+for student in scores:
     total = total + scores[student]
 
 print total # prints 215
