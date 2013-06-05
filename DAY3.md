@@ -88,7 +88,7 @@ Here we've broken most of the program into two functions, get_room and price_roo
 
 ## Importing and Building Libraries
 
-If you had to keep everything in one file, programs would quickly unmanageable. As you see above this has become many pages worth of code, which becomes unmanageable and unreadable as it grows. So instead we prefer to break up things into various files. All of the functions that we have created so far has been placed in a file called `utilities.py`. Download this to the same directory that python runs from (for windows this is `C:\Python`, on Mac and Linux you can just save it to your home folder). Then in the a separate file in the same directory (or in a prompt) you can import things three different ways.
+If you had to keep everything in one file, programs would quickly unmanageable. As you see above this has become many pages worth of code. So instead we prefer to break up things into various files. All of the functions that we have created so far has been placed in a file called `utilities.py`. Download this to the same directory that python runs from (for windows this is `C:\Python`, on Mac and Linux you can just save it to your home folder). Then in the a separate file in the same directory (or in a prompt) you can import things three different ways.
 
 * Import an individual object with `from some_library import something`.
 
@@ -106,6 +106,7 @@ print utils.add3(1,2,3) # 6
 
 * Import everything from a library. Here the asterix `*` is used to indicate that you want to import everything. This should not be used in files since you may have trouble figuring out what you imported from where later on. Also, is this library has variables or functions of the same name as variables you have made they will e overwritten.
 
+```python
 # import everything from the library
 from utils import *
 print utils.add3(1,2,3) # 6
