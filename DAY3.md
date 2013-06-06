@@ -112,9 +112,13 @@ from utils import *
 print utils.add3(1,2,3) # 6
 ```
 
-Very large programs need to be better organized using directories. Look at the `room_builder` folder.
+Very large programs need to be better organized using directories. Look at the `room_builder` folder. This folder has three files:
 
-<!!--- MISSING!!!!! -->
+* `__init__.py` is an empty file. This can contain stuff (a very advanced topic). For now this is just a way to signal python that this folder contains python code and can be imported as `import room_builder`
+
+* `utils.py` is a file full of functions. Executing this file with `python room_builder/utils.py` does nothing, since none of the functions are ever used.
+
+* `run.py` executes the program. This uses the functions in utils to prompt the user and process the inputed data.
 
 ## Built in and third party libraries
 
@@ -139,7 +143,7 @@ dice2 = random.choice(range(1,7))
 
 ### `datetime`
 
-With oddly numbered months, leap years, and daylight savings programming dates can be a real pain. Luckily there is the builtin `datetime` library that handles all the trickey math. There are 4 main data types:
+Because of the oddly numbered days in each month, leap years, and daylight savings, programming dates can be a real pain. Even without these, keeping track of dates and time are difficult because the time system we use is irregular (eg, not base 10). Luckily there is the builtin `datetime` library that handles all the trickey math. There are 4 main data types:
 
 * `datetime.date` - A date that is unaware of time.
 
@@ -149,7 +153,7 @@ With oddly numbered months, leap years, and daylight savings programming dates c
 
 * `datetime.timedelta` - The difference between two of the above objects.
 
-We'll focus only on the `datetime.datetime` and `datetime.timedelta` objects. A `datetime.datetime` requires three integers for year, month, day and can take optional arguments for hour, minute, second and microseconds. A `datetime.timedelta` object requires days and has two optional arguments for seconds and microseconds. The following example shows how to find the difference between two `datetime.datetime`s.
+We'll focus only on the `datetime.datetime` and `datetime.timedelta` objects. A `datetime.datetime` requires three integers for year, month, day and can take optional arguments for hour, minute, second and microseconds (in other words `datetime.datetime(1999,12,6,0,0,0,0)` is the same thing as `datetime.datetime(1999,12,6)`). A `datetime.timedelta` object requires days and has two optional arguments for seconds and microseconds. The following example shows how to find the difference between two `datetime.datetime`s.
 
 ```python
 
@@ -174,7 +178,7 @@ print "That is in " + str(days_to_billion) + " days"
 
 1. Change the above program to ask the user what their birthday is. Be sure to use `number_input` again and ask them the year, month, and date they were born.
 
-2. Modify the above program (or anything you have written) to record two times, one at the begining and one at the end of the program. When then inform the user how long the program took to run.
+2. Modify the above program (or anything you have written) to record two times, one at the begining and one at the end of the program. Use this to inform the user how long the program took to run.
 
 ## Saving and loading
 
@@ -210,7 +214,7 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: 'I\'m not a number I am a human being!'
 ```
 
-This tells us where the error occurred (In this case "stdin" or "standard input" which is the terminal. This can be used to hunt down the file in which the error occurred. Then it tells us the type of error (in this case a `ValueError`) and why it occurred.
+This tells us where the error occurred (In this case "stdin" or "standard input" which is the terminal). This can be used to hunt down the file in which the error occurred. Then it tells us the type of error (in this case a `ValueError`) and why it occurred ("invalid literal for...").
 
 You can use then reverse this so that the program isn't halted when an error occurs:
 

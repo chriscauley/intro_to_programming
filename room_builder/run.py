@@ -1,9 +1,9 @@
 from utils import get_room, price_room
 
 enter_room = 'y'
+rooms = []
 
 while True:
-    rooms = []
     if enter_room == 'y':
         rooms.append(get_room())
     elif enter_room == 'n':

@@ -64,8 +64,8 @@ def price_room(room,print_prices):
     estimates = {}
     
     total = 0
-    for key in amounts:
-        estimates[key] = prices[key]*amounts[key]
+    for key in room:
+        estimates[key] = prices[key]*room[key]
         if print_prices:
             print key.upper() + " estimate: $" + str(estimates[key])
         total = total + estimates[key]
